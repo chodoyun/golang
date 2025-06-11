@@ -1,0 +1,30 @@
+name: Build and Release myapp.exe
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build Windows executable
+        run: go build -o myapp.exe main.go
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: myapp.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
