@@ -16,8 +16,9 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
     <meta charset="UTF-8">
 </head>
 <body>
-    <h1>안녕하세요! Go 웹 애플리케이션입니다</h1>
+    <h1>안녕하세요! Go 웹 애플리케이션입니다.</h1>
     <p>이 페이지는 Go로 개발되어 IIS에서 실행되고 있습니다.</p>
+	<p>GitHub Actions는 자동화 도구라고 생각하면 쉬워요!</p>
     <p>현재 시간: <span id="time"></span></p>
     
     <script>
